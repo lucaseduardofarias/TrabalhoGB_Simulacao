@@ -81,11 +81,12 @@ public class Scheduler {
 	}
 
 	public Event createEvent(String name) {
+		
 		if (name == "ClientsArrival") {
 			ClientsArrival ca = new ClientsArrival(getAndIncrementCurrentEventId(), this);
 			return ca;
 		}
-		/* TODO: adicionar os outros eventos */
+		
 		return null;
 	}
 
@@ -117,7 +118,7 @@ public class Scheduler {
 	}
 
 	public void simulate() {
-
+		
 		while (this.time < this.executionMaxTime) {
 
 			Event event = getNextEvent();

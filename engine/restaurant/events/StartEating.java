@@ -12,6 +12,10 @@ public class StartEating extends Event {
 		this.clients = clients;
 	}
 
+	public StartEating(int id, Scheduler scheduler) {
+		super(id, scheduler);
+	}
+
 	public void execute() {
 		Scheduler s = this.scheduler;
 		Resource table = null;
@@ -22,7 +26,7 @@ public class StartEating extends Event {
 		else
 			table = s.getResource(4);
 		System.out.printf(ConsoleColors.WHITE + "Evento " + this.eventId + ": Cliente " + clients.getId() + " comendo\n" + ConsoleColors.RESET, s.time);
-		Leave l = new Leave(s.getAndIncrementCurrentEventId(), s, table);
+		Leave l = new Leave(s.getAndIncrementCurrentEventId(), s, table, clients.getId());
 		s.scheduleIn(l, s.getNumberGenerators().normalDist(20, 8));
 	}
 }

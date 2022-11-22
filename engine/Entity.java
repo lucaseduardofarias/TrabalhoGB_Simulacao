@@ -34,5 +34,4 @@ public class Entity {
 	public double getCreationTime() {
 		return this.creationTime;
 	}
-
 }

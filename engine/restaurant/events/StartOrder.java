@@ -16,6 +16,10 @@ public class StartOrder extends Event {
 		this.resource = resource;
 	}
 
+	public StartOrder(int id, Scheduler scheduler) {
+		super(id, scheduler);
+	}
+
 	public void execute() {
 		/* Agenda a finalização do atendimento */
 		Scheduler scheduler = this.scheduler;

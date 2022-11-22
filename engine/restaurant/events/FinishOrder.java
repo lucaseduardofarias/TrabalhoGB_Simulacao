@@ -18,6 +18,10 @@ public class FinishOrder extends Event {
 		this.resource = resource;
 	}
 
+	public FinishOrder(int id, Scheduler scheduler) {
+		super(id, scheduler);
+	}
+
 	public void execute() {
 
 		sendClientsToTable();

@@ -14,6 +14,10 @@ public class Seat extends Event {
 		this.resource = resource;
 	}
 
+	public Seat(int id, Scheduler scheduler) {
+		super(id, scheduler);
+	}
+
 	public void execute() {
 		Scheduler s = this.scheduler;
 		// Cliente senta

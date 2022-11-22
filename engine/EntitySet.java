@@ -34,19 +34,19 @@ public class EntitySet {
 		}
 	}
 
-	public Entity remove() { // similar a dequeue ou pop...
+	public Entity remove() {
 		if (isEmpty() == true) {
 			return null;
 		} else {
 			Entity aux;
-			if (mode == "LIFO") { // Remove sempre o ultimo registro
+			if (mode == "LIFO") {
 				aux = entityList.get(this.size - 1);
 				entityList.remove(this.size - 1);
 
-			} else if (mode == "FIFO") { // Remove sempre o primeiro registro e reorganiza a lista
+			} else if (mode == "FIFO") {
 				aux = entityList.get(0);
 				entityList.remove(0);
-				List<Entity> auxList = new ArrayList<>(); // Lista aux para reordenar lista nova
+				List<Entity> auxList = new ArrayList<>();
 				if (this.size > 1) {
 					for (int i = 1; i < this.size; i++) {
 						auxList.add(entityList.get(i - 1));

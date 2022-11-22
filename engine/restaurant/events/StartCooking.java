@@ -16,7 +16,11 @@ public class StartCooking extends Event {
     this.resource = resource;
   }
 
-  public void execute() {
+  public StartCooking(int id, Scheduler scheduler) {
+	  super(id, scheduler);
+  }
+
+public void execute() {
     Scheduler s = this.scheduler;
     /* Agenda a finalização da preparação do pedido */
     System.out

@@ -14,6 +14,10 @@ public class FinishCooking extends Event {
 		this.resource = resource;
 	}
 
+	public FinishCooking(int id, Scheduler scheduler) {
+		super(id, scheduler);
+	}
+
 	public void execute() {
 		Scheduler scheduler = this.scheduler;
 		/* 

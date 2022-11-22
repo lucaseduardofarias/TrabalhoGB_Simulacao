@@ -6,24 +6,31 @@ public class test {
 
 	public static void main(String[] args) {
 
-		Scheduler s = new Scheduler();
+		Scheduler schedule = new Scheduler();
 
-		s.createResource("Caixa 1", 1); // 0
-		s.createEntitySet("LIFO", 1000); // fila caixa 1
-		s.createResource("Caixa 2", 1); // 1
-		s.createEntitySet("LIFO", 1000); // fila caixa 2
-		s.createResource("Balcão", 6); // 2
-		s.createEntitySet("LIFO", 1000); // fila do balcão
-		s.createResource("Mesas para 2", 4); // 3
-		s.createEntitySet("LIFO", 1000); // fila das mesas para 2
-		s.createResource("Mesas para 4", 4); // 4
-		s.createEntitySet("LIFO", 1000); // fila das mesas para 4
-		s.createResource("Cozinheiros", 3); // 5
-		s.createEntitySet("LIFO", 1000); // fila dos pedidos a serem cozinhados
-		s.createEntitySet("LIFO", 1000); // Fila de pedidos prontos: ID 6
-		s.startArrival("ClientsArrival");
+		schedule.createResource("Caixa 1", 1); // FILA 0
+        schedule.createEntitySet("FIFO", 1000); //fila caixa 1
+        
+        schedule.createResource("Caixa 2", 1); // FILA 1
+        schedule.createEntitySet("FIFO", 1000); //fila caixa 2
+        
+        schedule.createResource("Balcão", 6); // FILA 2
+        schedule.createEntitySet("FIFO", 1000); //fila do balcão
+        
+        schedule.createResource("Mesas para 2", 4); //FILA 3
+        schedule.createEntitySet("FIFO", 1000); //fila das mesas para 2
+        
+        schedule.createResource("Mesas para 4", 4); //FILA 4
+        schedule.createEntitySet("FIFO", 1000); //fila das mesas para 4
+        
+        schedule.createResource("Cozinheiros", 3); //FILA 5
+        schedule.createEntitySet("FIFO", 1000); //fila dos pedidos a serem cozinhados
+        
+        schedule.createEntitySet("FIFO", 1000); // FILA 6 - Fila de pedidos prontos
+        
+        schedule.startArrival("ClientsArrival");//Evento inicial
 
-		s.simulate();
+		schedule.simulate();
 
 	}
 
